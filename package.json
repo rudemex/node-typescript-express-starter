@@ -23,7 +23,11 @@
     "js",
     "javascript"
   ],
-  "author": "Maximiliano \"Mex\" Delgado <mdelgado@tresdoce.com.ar>",
+  "author": {
+    "name": "Maximiliano \"Mex\" Delgado",
+    "email": "mdelgado@tresdoce.com.ar",
+    "url": "https://rudemex.github.io/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rudemex/node-typescript-express-starter/issues"
