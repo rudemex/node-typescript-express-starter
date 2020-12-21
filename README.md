@@ -1,4 +1,4 @@
-# Simple Node TypeScript Express Starter
+<h1 align="center">Simple Node TypeScript Express Starter<h1/>
 
 <p align="center">
   <a href="https://nodejs.org/es/">
