@@ -1,10 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -12,7 +9,10 @@
   ],
   "rules": {
     "@typescript-eslint/no-inferrable-types": "off",
-    "no-console": 1,
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-var": "error",
     "prettier/prettier": 2
   }
 }
