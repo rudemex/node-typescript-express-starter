@@ -2,7 +2,7 @@ import { Request, Response, Application } from 'express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import signale from './utils/signale';
-import pjson from '../package.json';
+const pjson = require('../package.json');
 
 const swagger = (app: Application, config: any) => {
   const swaggerDefinition = {

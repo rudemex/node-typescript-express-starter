@@ -1,5 +1,4 @@
 import { Signale } from 'signale-logger';
-import * as config from 'config';
 
 /*
  * Signale Types:
@@ -9,10 +8,7 @@ import * as config from 'config';
  * success, error, info, note
  * */
 
-const secrets = config.get<string>('params.secrets');
-
 const options: any = {
-  secrets: secrets ? secrets.split(',') : [],
   types: {
     santa: {
       badge: '🎅',
@@ -53,4 +49,7 @@ const options: any = {
   },
 };
 
-module.exports = new Signale(options);
+const signale = new Signale(options);
+
+export default signale;
+//module.exports = signale;

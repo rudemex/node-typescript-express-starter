@@ -12,7 +12,11 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+
+    }
   },
   "include": ["./src/**/*.ts"],
   "exclude": [
