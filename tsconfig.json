@@ -15,10 +15,11 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-
     }
   },
-  "include": ["./src/**/*.ts"],
+  "include": [
+    "./src/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "./dist/**/*.ts"

@@ -14,6 +14,8 @@
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-debugger": "error",
     "no-var": "error",
-    "prettier/prettier": 2
+    "prettier/prettier":  ["error",{
+      "endOfLine": "auto"}
+    ]
   }
 }
