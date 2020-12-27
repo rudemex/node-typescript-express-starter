@@ -1,39 +1,31 @@
 const config = require('config');
-import express, { Request, Response, NextFunction } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import signale from './utils/signale';
+import { toStringify } from './utils/converters';
+import { swagger } from './swagger';
 
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const swagger = require('./swagger');
 const routes = require('./routes/routes');
-
 const pjson = require('../package.json');
+
+//signale.info('Using config: ', config);
 
 const serverConfig = config.get('server');
 const swaggerConfig = config.get('swagger');
 
-//signale.info('Using config: ', config);
-
 const port = parseInt(serverConfig['port'], 10) || 8080;
 
-const cors_options_enabled = {
-  origin: serverConfig['origins'],
-  methods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
-  credentials: true,
-  allowedHeaders: serverConfig['headersAllowed'],
-};
-const cors_options_disabled = {
-  origin: '*',
-  methods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
-  credentials: false,
+const corsOptions = {
+  origin: serverConfig['corsEnabled'] == 'true' ? serverConfig['origins'] : '*',
+  methods: serverConfig['methodsAllowed'],
+  credentials: serverConfig['corsCredentials'],
   allowedHeaders: serverConfig['headersAllowed'],
 };
 
 const app = express();
 
-app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -47,20 +39,29 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   };
 
   if (serverConfig['showLogInterceptor'] == 'true') {
-    signale.info(`Interceptor: REQUEST to `, encodeURI(req['url']));
-    signale.info(`Interceptor: REQUEST HEADERS `, output_reqHeaders);
-    signale.info(`Interceptor: REQUEST BODY `, output_reqBody);
+    signale.info({
+      prefix: `[INTERCEPTOR] REQUEST TO`,
+      message: encodeURI(req['url']),
+    });
+    signale.info({
+      prefix: `[INTERCEPTOR] REQUEST HEADERS`,
+      message: toStringify(output_reqHeaders),
+    });
+    signale.info({
+      prefix: `[INTERCEPTOR] REQUEST BODY `,
+      message: toStringify(output_reqBody),
+    });
   }
 
-  const whitelist = serverConfig['origins'];
+  const allowedOrigins = serverConfig['origins'].split(',');
   const origin = req['headers']['origin'];
 
-  if (serverConfig['corsEnabled'] == 'true' && whitelist.indexOf(origin) > -1) {
+  if (
+    serverConfig['corsEnabled'] == 'true' &&
+    allowedOrigins.includes(origin)
+  ) {
     res.header('Access-Control-Allow-Origin', origin);
-    res.header(
-      'Access-Control-Allow-Methods',
-      'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
-    ); //
+    res.header('Access-Control-Allow-Methods', serverConfig['methodsAllowed']);
     res.header('Access-Control-Allow-Headers', serverConfig['headersAllowed']);
     res.header('Access-Control-Allow-Credentials', 'true');
   }
@@ -68,13 +69,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-if (serverConfig['corsEnabled'] == 'true') {
-  signale.info('Using cors config: ', cors_options_enabled);
-  app.use(cors(cors_options_enabled));
-} else {
-  signale.info('Using cors config: ', cors_options_disabled);
-  app.use(cors(cors_options_disabled));
-}
+signale.info('Using cors config: ', toStringify(corsOptions));
+app.use(cors(corsOptions));
 
 if (swaggerConfig['enabled'] == 'true') {
   swagger(app, serverConfig);

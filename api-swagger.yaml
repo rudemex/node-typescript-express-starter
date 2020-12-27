@@ -1,8 +1,0 @@
-swagger: '2.0'
-info:
-  description: Swagger - Server Express
-  version: 1.0.0
-  title: node-typescript-express-starter
-basePath: /api
-paths:
-definitions:
