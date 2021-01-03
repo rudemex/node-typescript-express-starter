@@ -1,11 +1,11 @@
 const config = require('config');
 import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 import signale from './utils/signale';
 import { toStringify } from './utils/converters';
 import { swagger } from './swagger';
 
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const routes = require('./routes/routes');
 const pjson = require('../package.json');
@@ -18,7 +18,10 @@ const swaggerConfig = config.get('swagger');
 const port = parseInt(serverConfig['port'], 10) || 8080;
 
 const corsOptions = {
-  origin: serverConfig['corsEnabled'] == 'true' ? serverConfig['origins'] : '*',
+  origin:
+    serverConfig['corsEnabled'] == 'true'
+      ? serverConfig['origins'].split(',')
+      : '*',
   methods: serverConfig['methodsAllowed'],
   credentials: serverConfig['corsCredentials'],
   allowedHeaders: serverConfig['headersAllowed'],
@@ -54,7 +57,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
 
   const allowedOrigins = serverConfig['origins'].split(',');
-  const origin = req['headers']['origin'];
+  const origin = req['headers']['origin'] || '*';
 
   if (
     serverConfig['corsEnabled'] == 'true' &&
@@ -64,6 +67,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     res.header('Access-Control-Allow-Methods', serverConfig['methodsAllowed']);
     res.header('Access-Control-Allow-Headers', serverConfig['headersAllowed']);
     res.header('Access-Control-Allow-Credentials', 'true');
+    corsOptions.origin = origin;
   }
 
   next();

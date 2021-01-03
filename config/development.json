@@ -8,7 +8,7 @@
     "headersAllowed": "Content-Type,Authorization,Set-Cookie,Access-Control-Allow-Origin,Cache-Control,Pragma",
     "methodsAllowed": "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS",
     "corsCredentials": false,
-    "corsEnabled": "false",
+    "corsEnabled": "true",
     "tz": "America/Argentina/Buenos_Aires",
     "showLogInterceptor": "false"
   },
