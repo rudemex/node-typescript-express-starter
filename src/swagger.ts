@@ -17,7 +17,7 @@ export const swagger = (app: Application, config: any) => {
 
   const options = {
     swaggerDefinition,
-    apis: ['./api-swagger.yaml', './routes/*.ts'],
+    apis: ['./api-swagger.yaml'],
   };
 
   const swaggerSpec = swaggerJSDoc(options);
