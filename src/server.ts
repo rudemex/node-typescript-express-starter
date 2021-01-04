@@ -11,9 +11,9 @@ const routes = require('./routes/routes');
 const pjson = require('../package.json');
 
 //signale.info('Using config: ', config);
-
-const serverConfig = config.get('server');
-const swaggerConfig = config.get('swagger');
+const appConfig = config;
+const serverConfig = appConfig['server'];
+const swaggerConfig = appConfig['swagger'];
 
 const port = parseInt(serverConfig['port'], 10) || 8080;
 
@@ -87,7 +87,7 @@ app.use(
   }),
 );
 
-routes(app, pjson['version']);
+routes(app, appConfig, pjson['version']);
 
 app.listen(port, () => {
   signale.info(`Version: ${pjson['version']}`);

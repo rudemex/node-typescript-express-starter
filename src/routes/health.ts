@@ -1,11 +1,9 @@
 import { Application, Request, Response } from 'express';
-const config = require('config');
 
-module.exports = (app: Application) => {
-  const serverConfig = config.get('server');
-  const context = serverConfig.context;
+module.exports = (app: Application, appConfig: any) => {
+  const { context } = appConfig['server'];
 
   app.get(encodeURI(`${context}/health`), (req: Request, res: Response) => {
-    res.json({ status: 'UP' });
+    res.status(200).json({ status: 'UP' });
   });
 };
