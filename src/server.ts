@@ -29,6 +29,7 @@ const corsOptions = {
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -79,13 +80,6 @@ app.use(cors(corsOptions));
 if (swaggerConfig['enabled'] == 'true') {
   swagger(app, serverConfig);
 }
-
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  }),
-);
 
 routes(app, appConfig, pjson['version']);
 
