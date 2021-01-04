@@ -1,4 +1,4 @@
-name: "LINT"
+name: "TEST"
 
 on:
   push:
