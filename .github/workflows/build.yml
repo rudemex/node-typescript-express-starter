@@ -22,14 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: "💾 Restore pacakges from cache"
+      - name: "💾 Restore packages from cache"
         uses: actions/cache@v2
         with:
           path: |
             node_modules
             */*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-      - name: "📦 Install pacakges"
+      - name: "📦 Install packages"
         run: npm install
       - name: "🔨 Build"
         run: npm run build
