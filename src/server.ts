@@ -84,6 +84,6 @@ if (swaggerConfig['enabled'] == 'true') {
 routes(app, appConfig, pjson['version']);
 
 app.listen(port, () => {
-  signale.info(`Version: ${pjson['version']}`);
-  signale.success(`App running on port: ${port}`);
+  signale.info(`🏷 Version: ${pjson['version']}`);
+  signale.success(`🚀 App running on port: ${port}`);
 });

@@ -23,7 +23,7 @@ const headers = {
 
 const filterOptions = ({ ...rest }) => rest;
 
-/*export const prepareResponse = async (
+export const prepareResponse = async (
   method: Method,
   url: string,
   headers: any = {},
@@ -65,7 +65,7 @@ const filterOptions = ({ ...rest }) => rest;
     });
     throw error;
   }
-};*/
+};
 
 const fetch = async (url: string, options: any = {}): Promise<AxiosPromise> => {
   try {
@@ -160,6 +160,7 @@ const del = async (url: string, options: any = {}): Promise<AxiosPromise> => {
 };
 
 export default {
+  prepareResponse,
   get,
   post,
   put,
