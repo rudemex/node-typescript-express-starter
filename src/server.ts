@@ -1,8 +1,8 @@
 const config = require('config');
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import signale from './utils/signale';
 import { toStringify } from './utils/converters';
+import signale from './utils/signale';
 import { swagger } from './swagger';
 
 const bodyParser = require('body-parser');

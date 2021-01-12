@@ -82,12 +82,17 @@
     "xss": "^1.0.8"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/cors": "^2.8.9",
     "@types/node": "^14.6.3",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-babel-module": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
