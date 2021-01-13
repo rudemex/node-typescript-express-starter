@@ -1,0 +1,21 @@
+{
+  "server": {
+    "port": "SERVER_PORT",
+    "context": "CONTEXT_NAME",
+    "origins": "ORIGINS_ALLOWED",
+    "originsReadOnly": "ORIGINS_READ_ONLY",
+    "headersAllowed": "HEADERS_ALLOWED",
+    "methodsAllowed": "METHODS_ALLOWED",
+    "corsCredentials": "CORS_CREDENTIALS",
+    "corsEnabled": "CORS_ENABLED",
+    "tz": "TZ",
+    "showLogInterceptor": "SHOW_LOG_INTERCEPTOR"
+  },
+  "swagger": {
+    "enabled": "SWAGGER_ENABLED"
+  },
+  "params": {
+  },
+  "services": {
+  }
+}
