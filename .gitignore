@@ -8,9 +8,16 @@ node_modules
 **/.idea/**
 .idea
 /.idea
+.vscode/**
+**/.vscode/**
+.vscode
+/.vscode
 
 npm-debug.log
 package-lock.json
+
+data.json
+yarn.lock
 
 # Logs
 logs
