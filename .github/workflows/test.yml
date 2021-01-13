@@ -34,7 +34,7 @@ jobs:
       - name: "👨‍💻 Run Codecov and generate coverage report"
         run: |
           npm i -D codecov
-          codecov
+          node_modules/.bin/codecov --token=${{ secrets.CODECOV_TOKEN }}
       - name: "📊 Upload coverage report to Codecov"
         uses: codecov/codecov-action@v1
         with:
