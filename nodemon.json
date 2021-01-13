@@ -2,5 +2,5 @@
   "watch": ["dist"],
   "ext": ".ts,.js",
   "ignore": ["node_modules"],
-  "exec": "node ./dist/server.js"
+  "exec": "node --inspect=0.0.0.0:9228 ./dist/server.js"
 }

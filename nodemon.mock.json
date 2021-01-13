@@ -2,5 +2,5 @@
   "watch": ["mock"],
   "ext": ".ts,.js",
   "ignore": ["node_modules"],
-  "exec": "node ./mock/server-mock.js"
+  "exec": "node --inspect=0.0.0.0:9228  ./mock/server-mock.js"
 }

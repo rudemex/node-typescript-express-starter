@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Starter server express nodejs with typescript",
   "scripts": {
-    "dev": "nodemon --config ./nodemon.dev.json",
+    "dev": "nodemon  --config ./nodemon.dev.json",
     "mock": "nodemon --config ./nodemon.mock.json",
     "start": "nodemon",
     "build": "npm-run-all -l -c -s prebuild lint compile",
