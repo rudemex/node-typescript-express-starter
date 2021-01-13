@@ -1,22 +1,21 @@
 {
   "server": {
-    "url": "http://localhost:8080",
     "port": 8080,
     "context": "/api",
     "origins": "http://localhost:3000,http://localhost:3001,http://localhost:8080",
     "originsReadOnly": "http://localhost:3001",
     "headersAllowed": "Content-Type,Authorization,Set-Cookie,Access-Control-Allow-Origin,Cache-Control,Pragma",
     "methodsAllowed": "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS",
-    "corsCredentials": false,
+    "corsCredentials": "false",
     "corsEnabled": "true",
     "tz": "America/Argentina/Buenos_Aires",
     "showLogInterceptor": "false"
   },
+  "swagger": {
+    "enabled": "true"
+  },
   "params": {
   },
   "services": {
-  },
-  "swagger": {
-    "enabled": "true"
   }
 }

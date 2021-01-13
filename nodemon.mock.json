@@ -1,0 +1,6 @@
+{
+  "watch": ["mock"],
+  "ext": ".ts,.js",
+  "ignore": ["node_modules"],
+  "exec": "node ./mock/server-mock.js"
+}

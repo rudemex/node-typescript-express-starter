@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "module": "commonjs",
     "lib": [
-      "ESNext"
+      "dom", "es2017","ESNext"
     ],
     "allowJs": true,
     "outDir": "./dist",
@@ -12,7 +12,11 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "paths": {
+    }
   },
   "include": [
     "./src/**/*.ts"

@@ -1,8 +1,8 @@
 const config = require('config');
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import signale from './utils/signale';
 import { toStringify } from './utils/converters';
+import signale from './utils/signale';
 import { swagger } from './swagger';
 
 const bodyParser = require('body-parser');
@@ -84,6 +84,6 @@ if (swaggerConfig['enabled'] == 'true') {
 routes(app, appConfig, pjson['version']);
 
 app.listen(port, () => {
-  signale.info(`Version: ${pjson['version']}`);
-  signale.success(`App running on port: ${port}`);
+  signale.info(`🏷 Version: ${pjson['version']}`);
+  signale.success(`🚀 App running on port: ${port}`);
 });
