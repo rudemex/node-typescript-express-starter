@@ -31,9 +31,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: "📦 Install packages"
         run: npm install
-      - name: "👨‍💻 Run the tests and generate coverage report"
-        run: npm lint -- --coverage
-      - name: "📊 Upload coverage to Codecov"
+      - name: "👨‍💻 Run Codecov and generate coverage report"
+        run: codecov
+      - name: "📊 Upload coverage report to Codecov"
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
