@@ -9,7 +9,7 @@
     "build": "npm-run-all -l -c -s prebuild lint compile",
     "prebuild": "rimraf ./dist",
     "compile": "tsc",
-    "test": "node -v",
+    "test": "node -v -- --coverage",
     "lint": "yarn lint:base ./src ./mock",
     "lint:base": "eslint --ext .js,.json,.ts"
   },
@@ -91,6 +91,7 @@
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "babel-plugin-module-resolver": "^4.1.0",
+    "codecov": "^3.8.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
