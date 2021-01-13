@@ -23,7 +23,7 @@
 
 - [📝 Requerimientos básicos](#basic-requirements)
 - [🛠 Instalar dependencias](#install-dependencies)
-- [⚙ Configuración](#configurations)
+- [⚙️ Configuración](#configurations)
 - [💻 Scripts](#scripts)
 - [📚 Swagger](#swagger-info)
 - [📤 Commits](#commits)
@@ -52,7 +52,7 @@ dependencias.
 
 <a name="configurations"></a>
 
-## ⚙ Configuración
+## ⚙️ Configuración
 
 Esta aplicación utiliza la dependencia de [config](https://www.npmjs.com/package/config) para facilitar la configuración
 de las variables del entorno, lo que la hace escalable y robusta al desplegar la aplicación en diferentes entornos.
