@@ -9,6 +9,7 @@
     "build": "npm-run-all -l -c -s prebuild lint compile",
     "prebuild": "rimraf ./dist",
     "compile": "tsc",
+    "test": "node -v",
     "lint": "yarn lint:base ./src ./mock",
     "lint:base": "eslint --ext .js,.json,.ts"
   },
