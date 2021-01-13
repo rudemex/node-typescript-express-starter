@@ -6,11 +6,11 @@
     "dev": "nodemon  --config ./nodemon.dev.json",
     "mock": "nodemon --config ./nodemon.mock.json",
     "start": "nodemon",
-    "build": "npm-run-all -l -c -s prebuild lint compile",
+    "build": "npm-run-all -l -c -s prebuild compile",
     "prebuild": "rimraf ./dist",
     "compile": "tsc",
     "test": "jest --runInBand",
-    "lint": "yarn lint:base ./src ./mock",
+    "lint": "yarn lint:base ./src ./mock ./test",
     "lint:base": "eslint --ext .js,.json,.ts"
   },
   "repository": {
