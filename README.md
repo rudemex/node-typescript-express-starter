@@ -17,6 +17,7 @@
 - [⚙ Configuración](#configurations)
 - [💻 Scripts](#scripts)
 - [📚 Swagger](#swagger-info)
+- [📤 Commits](#commits)
 - [😝 Mocks](#mocks)
 
 ---
@@ -252,6 +253,22 @@ Acceso a la documentación y testeo de los endpoints: `http://localhost:8080/api
 ```
 <http|https>://<server_url><:port>/api-docs
 ```
+<a name="commits"></a>
+## 📤 Commits
+
+Para los mensajes de commits se toma como referencia [`conventional commits`](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary).
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]
+```
+
+- **type:** chore, docs, feat, fix, refactor (más comunes)
+- **scope:** indica la página, componente, funcionalidad
+- **description:** comienza en minúsculas y no debe superar los 72 caracteres.
 
 <a name="mocks"></a>
 

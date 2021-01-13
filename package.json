@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Starter server express nodejs with typescript",
   "scripts": {
-    "dev": "nodemon --watch \"./src\" --ext \".ts,.js\" --ignore \"node_modules\" --exec \"ts-node ./src/server.ts\"",
+    "dev": "nodemon --config ./nodemon.dev.json",
     "mock": "nodemon ./mock/server-mock.js",
     "start": "nodemon",
     "build": "npm-run-all -l -c -s prebuild lint compile",
