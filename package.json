@@ -9,7 +9,7 @@
     "build": "npm-run-all -l -c -s prebuild compile",
     "prebuild": "rimraf ./dist",
     "compile": "tsc",
-    "test": "cross-env NODE_ENV= jest --runInBand",
+    "test": "cross-env NODE_ENV=test jest --runInBand",
     "lint": "yarn lint:base ./src ./mock ./test",
     "lint:base": "eslint --ext .js,.json,.ts"
   },

@@ -9,7 +9,8 @@
     "corsCredentials": "CORS_CREDENTIALS",
     "corsEnabled": "CORS_ENABLED",
     "tz": "TZ",
-    "showLogInterceptor": "SHOW_LOG_INTERCEPTOR"
+    "showLogInterceptor": "SHOW_LOG_INTERCEPTOR",
+    "enabledLogs": "ENABLED_LOGS"
   },
   "swagger": {
     "enabled": "SWAGGER_ENABLED"

@@ -1,9 +1,7 @@
 import request from 'supertest';
-const config = require('config');
 import app from '../src/app';
-const pjson = require('../package.json');
 
-const serverConfig = config['server'];
+const pjson = require('../package.json');
 
 describe('Endpoint root', () => {
   it('Should be return status 200', async () => {

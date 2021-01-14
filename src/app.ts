@@ -15,6 +15,12 @@ const appConfig = config;
 const serverConfig = appConfig['server'];
 const swaggerConfig = appConfig['swagger'];
 
+if (serverConfig['enabledLogs'] == 'false') {
+  signale.disable();
+} else {
+  signale.enable();
+}
+
 const corsOptions = {
   origin:
     serverConfig['corsEnabled'] == 'true'

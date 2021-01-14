@@ -79,7 +79,8 @@ esquema.
     "corsCredentials": "false",
     "corsEnabled": "true",
     "tz": "America/Argentina/Buenos_Aires",
-    "showLogInterceptor": "false"
+    "showLogInterceptor": "false",
+    "enabledLogs": "true"
   },
   "swagger": {
     "enabled": "true"
@@ -152,6 +153,11 @@ servidor. [Lista de zonas horarias](https://en.wikipedia.org/wiki/List_of_tz_dat
 
 - Type: `Boolean`
 - Default: `false`
+
+`enabledLogs`: Habilita o deshabilita los logs de la aplicación.
+
+- Type: `Boolean`
+- Default: `true`
 
 #### Swagger
 
