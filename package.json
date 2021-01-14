@@ -62,6 +62,15 @@
       "pre-commit": "lint-staged"
     }
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts,jsx,tsx}",
+      "test/**/*.{spec,it,test,e2e}.{js,jsx,ts,tsx}",
+      "!/node_modules/",
+      "!src/swagger.ts",
+      "!src/utils/**/*.{js,ts,jsx,tsx}"
+    ]
+  },
   "dependencies": {
     "@types/body-parser": "^1.19.0",
     "@types/cookie-parser": "^1.4.2",
