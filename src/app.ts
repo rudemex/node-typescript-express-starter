@@ -25,7 +25,7 @@ const corsOptions = {
   allowedHeaders: serverConfig['headersAllowed'],
 };
 
-export const app = express();
+const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -80,3 +80,5 @@ if (swaggerConfig['enabled'] == 'true') {
 }
 
 routes(app, appConfig, pjson['version']);
+
+export default app;
