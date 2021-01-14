@@ -1,3 +1,7 @@
+parsers:
+  javascript:
+    enable_partials: yes
+
 ignore:
   - "./node_modules/*",
   - "./src/swagger.ts",
