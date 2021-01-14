@@ -1,4 +1,4 @@
 ignore:
-  - "node_modules/**",
-  - "src/swagger.ts",
-  - "src/utils/**/*.{js,ts,jsx,tsx}"
+  - "./node_modules/**",
+  - "./src/swagger.ts",
+  - "./src/utils/**/*.{js,ts,jsx,tsx}"
