@@ -5,7 +5,7 @@ const appRouter = (app: Application, appConfig: any, version: string) => {
   require('./health')(app, appConfig);
   require('./character')(app, appConfig);
 
-  app.get('/', (req: Request, res: Response) => {
+  app.get(encodeURI('/'), (req: Request, res: Response) => {
     res.status(200).send(`Welcome to server express - v${encodeURI(version)}`);
   });
 };
