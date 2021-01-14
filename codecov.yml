@@ -3,6 +3,6 @@ parsers:
     enable_partials: yes
 
 ignore:
-  - "./node_modules/*",
-  - "./src/swagger.ts",
-  - "./src/utils/*"
+  - "./node_modules/*"
+  - "./src/swagger.ts"
+  - "./src/utils/*/**.{ts,js}"
