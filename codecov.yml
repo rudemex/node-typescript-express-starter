@@ -4,5 +4,6 @@ parsers:
 
 ignore:
   - "./node_modules/*"
+  - "./src/app.ts"
   - "./src/swagger.ts"
-  - "./src/utils/*/**.{ts,js}"
+  - "./src/utils/*"
