@@ -64,11 +64,14 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,ts,jsx,tsx}",
-      "test/**/*.{spec,it,test,e2e}.{js,jsx,ts,tsx}",
+      "**/src/**/*.{js,ts,jsx,tsx}",
+      "**/test/**/*.spec.{js,jsx,ts,tsx}",
+      "**/test/**/*.it.{js,jsx,ts,tsx}",
+      "**/test/**/*.test.{js,jsx,ts,tsx}",
+      "**/test/**/*.e2e.{js,jsx,ts,tsx}",
       "!/node_modules/",
-      "!src/swagger.ts",
-      "!src/utils/**/*.{js,ts,jsx,tsx}"
+      "!**/src/swagger.ts",
+      "!**/src/utils/**/*.{js,ts,jsx,tsx}"
     ]
   },
   "dependencies": {
