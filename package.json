@@ -11,7 +11,7 @@
     "compile": "tsc",
     "test": "cross-env NODE_ENV=test jest --runInBand",
     "lint": "yarn lint:base ./src ./mock ./test",
-    "lint:base": "eslint --ext .js,.json,.ts"
+    "lint:base": "eslint --fix --ext .js,.json,.ts"
   },
   "repository": {
     "type": "git",

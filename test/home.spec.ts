@@ -11,8 +11,6 @@ describe('Endpoint root', () => {
 
   it('Should be return message and version', async () => {
     const result = await request(app).get(`/`).send();
-    expect(result.text).toEqual(
-      `Welcome to server express - v${pjson['version']}`,
-    );
+    expect(result.text).toEqual(`Welcome to server express - v${pjson['version']}`);
   });
 });

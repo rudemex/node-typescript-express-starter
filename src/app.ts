@@ -22,10 +22,7 @@ if (serverConfig['enabledLogs'] == 'false') {
 }
 
 const corsOptions = {
-  origin:
-    serverConfig['corsEnabled'] == 'true'
-      ? serverConfig['origins'].split(',')
-      : '*',
+  origin: serverConfig['corsEnabled'] == 'true' ? serverConfig['origins'].split(',') : '*',
   methods: serverConfig['methodsAllowed'],
   credentials: serverConfig['corsCredentials'],
   allowedHeaders: serverConfig['headersAllowed'],
@@ -64,10 +61,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   const allowedOrigins = serverConfig['origins'].split(',');
   const origin = req['headers']['origin'] || '*';
 
-  if (
-    serverConfig['corsEnabled'] == 'true' &&
-    allowedOrigins.includes(origin)
-  ) {
+  if (serverConfig['corsEnabled'] == 'true' && allowedOrigins.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
     res.header('Access-Control-Allow-Methods', serverConfig['methodsAllowed']);
     res.header('Access-Control-Allow-Headers', serverConfig['headersAllowed']);

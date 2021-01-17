@@ -1,9 +1,4 @@
-import axios, {
-  AxiosPromise,
-  AxiosRequestConfig,
-  AxiosResponse,
-  Method,
-} from 'axios';
+import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse, Method } from 'axios';
 import https from 'https';
 import { toStringify } from './converters';
 import signale from './signale';
