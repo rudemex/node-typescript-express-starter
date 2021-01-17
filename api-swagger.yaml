@@ -21,9 +21,110 @@ paths:
             $ref: '#/definitions/get-health-200'
         '404':
           description: Error.
+  '/character':
+    get:
+      tags:
+        - Character
+      summary: Get character of api Rick and Morty
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: name
+          type: string
+          in: query
+          required: false
+        - name: status
+          type: string
+          in: query
+          required: false
+          enum:
+            - Alive
+            - Dead
+            - unknown
+        - name: species
+          type: string
+          in: query
+          required: false
+        - name: type
+          type: string
+          in: query
+          required: false
+        - name: gender
+          type: string
+          in: query
+          required: false
+          enum:
+            - female
+            - male
+            - genderless
+            - unknown
+      responses:
+        '200':
+          description: Consulta satisfactoria
+          schema:
+            $ref: '#/definitions/get-character-200'
+        '404':
+          description: Error.
 definitions:
   get-health-200:
     type: object
     properties:
       status:
         type: string
+  get-character-200:
+    type: object
+    properties:
+      info:
+        type: object
+        properties:
+          count:
+            type: number
+          pages:
+            type: number
+          next:
+            type: string
+          prev:
+            type: string
+      results:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+            status:
+              type: string
+            species:
+              type: string
+            type:
+              type: string
+            gender:
+              type: string
+            origin:
+              type: object
+              properties:
+                name:
+                  type: string
+                url:
+                  type: string
+            location:
+              type: object
+              properties:
+                name:
+                  type: string
+                url:
+                  type: string
+            image:
+              type: string
+            episode:
+              type: array
+              items:
+                type: string
+            url:
+              type: string
+            created:
+              type: string

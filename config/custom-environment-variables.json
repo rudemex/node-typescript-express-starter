@@ -18,5 +18,6 @@
   "params": {
   },
   "services": {
+    "apiRick": "API_RICK_URL"
   }
 }
