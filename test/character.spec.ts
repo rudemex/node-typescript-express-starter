@@ -5,8 +5,8 @@ const config = require('config');
 
 const serverConfig = config['server'];
 
-describe('Endpoint Health', () => {
-  it('Should be return 200 and characters', async () => {
+describe('Endpoint Character', () => {
+  it('Should be return 200 and all characters', async () => {
     const result = await request(app).get(`${serverConfig['context']}/character`).send();
     expect(result.status).toBe(200);
     expect(result.body).not.toBeNull();
