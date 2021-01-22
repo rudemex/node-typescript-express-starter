@@ -5,14 +5,14 @@ ORIGINS_ALLOWED=http://localhost:3000,http://localhost:3001,http://localhost:808
 ORIGINS_READ_ONLY=http://localhost:3001
 HEADERS_ALLOWED=Content-Type,Authorization,Set-Cookie,Access-Control-Allow-Origin,Cache-Control,Pragma
 METHODS_ALLOWED=GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS
-CORS_CREDENTIALS="false"
-CORS_ENABLED="true"
+CORS_CREDENTIALS=false
+CORS_ENABLED=true
 TZ=America/Argentina/Buenos_Aires
-SHOW_LOG_INTERCEPTOR="false"
-ENABLED_LOGS="true"
+SHOW_LOG_INTERCEPTOR=false
+ENABLED_LOGS=true
 
 # SWAGGER ENVIRONMENTS
-SWAGGER_ENABLED="true"
+SWAGGER_ENABLED=true
 
 # PARAMS ENVIRONMENTS
 
