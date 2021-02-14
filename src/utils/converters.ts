@@ -29,7 +29,7 @@ export const formatDateToTimestamp = (
   date: string,
   format: string = 'YYYY-MM-DD HH:mm:ss',
   timeZone: string = `${serverConfig['tz']}`,
-): number => moment(date, format).tz(timeZone).unix();
+): any => moment(date, format).tz(timeZone).unix();
 
 export const toStringify = (data: any, replace: any = null, space: number = 2): string => {
   return JSON.stringify(data, replace, space);

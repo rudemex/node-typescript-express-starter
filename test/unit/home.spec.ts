@@ -1,16 +1,13 @@
-import request from 'supertest';
 import app from '../../src/app';
+import request from 'supertest';
 
 const pjson = require('../../package.json');
 
-describe('Endpoint root', () => {
-  it('Should be return status 200', async () => {
-    const result = await request(app).get(`/`).send();
-    expect(result.status).toBe(200);
-  });
-
-  it('Should be return message and version', async () => {
-    const result = await request(app).get(`/`).send();
-    expect(result.text).toEqual(`Welcome to server express - v${pjson['version']}`);
+describe('APP SERVER', () => {
+  it('Should be return status code 200 and welcome message in root', async (done) => {
+    const { status, text } = await request(app).get(`/`).send();
+    expect(status).toBe(200);
+    expect(text).toEqual(`Welcome to server express - v${pjson['version']}`);
+    done();
   });
 });
