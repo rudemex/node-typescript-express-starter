@@ -283,7 +283,7 @@ Acceso a la documentación y testeo de los endpoints: `http://localhost:8080/api
 #### Scheme
 
 ```
-<http|https>://<server_url><:port>/api-docs
+<http|https>://<server_url><:port>/<path>
 ```
 <a name="commits"></a>
 ## 📤 Commits
