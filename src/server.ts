@@ -8,6 +8,6 @@ const serverConfig = config['server'];
 const port = parseInt(serverConfig['port'], 10) || 8080;
 
 app.listen(port, () => {
-  signale.info(`🏷 Version: ${pjson['version']}`);
-  signale.success(`🚀 App running on port: ${port}`);
+  signale.info(`Version: v${pjson['version']}`);
+  signale.success(`App running on port: ${port}`);
 });

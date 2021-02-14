@@ -5,14 +5,14 @@ import signale from './utils/signale';
 
 const pjson = require('../package.json');
 
-export const swagger = (app: Application, config: any) => {
+export const swagger = (app: Application, appConfig: any) => {
   const swaggerDefinition = {
     info: {
       title: `${pjson['name']}`,
       version: `${pjson['version']}`,
       description: `Swagger - ${pjson['description']}`,
     },
-    basePath: config['context'],
+    basePath: appConfig['server']['context'],
   };
 
   const options = {
@@ -27,6 +27,6 @@ export const swagger = (app: Application, config: any) => {
     res.send(swaggerSpec);
   });
 
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use(`/${appConfig['swagger']['path']}`, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   signale.info('Swagger is enabled in : /api-docs');
 };

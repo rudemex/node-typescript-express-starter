@@ -1,12 +1,12 @@
-const config = require('config');
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
-import { toStringify } from './utils/converters';
 import signale from './utils/signale';
 import { swagger } from './swagger';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import { toStringify } from './utils/converters';
 
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+const config = require('config');
 const routes = require('./routes/routes');
 const pjson = require('../package.json');
 
@@ -15,17 +15,13 @@ const appConfig = config;
 const serverConfig = appConfig['server'];
 const swaggerConfig = appConfig['swagger'];
 
-if (serverConfig['enabledLogs'] == 'false') {
-  signale.disable();
-} else {
-  signale.enable();
-}
+serverConfig['enabledLogs'] == 'false' ? signale.disable() : signale.enable();
 
 const corsOptions = {
-  origin: serverConfig['corsEnabled'] == 'true' ? serverConfig['origins'].split(',') : '*',
-  methods: serverConfig['methodsAllowed'],
+  origin: '*',
+  methods: `${serverConfig['methodsAllowed']}`,
   credentials: serverConfig['corsCredentials'],
-  allowedHeaders: serverConfig['headersAllowed'],
+  allowedHeaders: `${serverConfig['headersAllowed']}`,
 };
 
 const app = express();
@@ -34,13 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req, res, next) => {
   const output_reqHeaders = {
-    output: req['headers'],
+    output: req.headers,
   };
-
   const output_reqBody = {
-    output: req['body'],
+    output: req.body,
   };
 
   if (serverConfig['showLogInterceptor'] == 'true') {
@@ -62,11 +57,12 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   const origin = req['headers']['origin'] || '*';
 
   if (serverConfig['corsEnabled'] == 'true' && allowedOrigins.includes(origin)) {
+    corsOptions['origin'] = origin;
+    corsOptions['credentials'] = true;
     res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Methods', serverConfig['methodsAllowed']);
-    res.header('Access-Control-Allow-Headers', serverConfig['headersAllowed']);
-    res.header('Access-Control-Allow-Credentials', 'true');
-    corsOptions.origin = origin;
+    res.header('Access-Control-Allow-Methods', `${serverConfig['methodsAllowed']}`);
+    res.header('Access-Control-Allow-Headers', `${serverConfig['headersAllowed']}`);
+    res.header('Access-Control-Allow-Credentials', `${corsOptions['credentials']}`);
   }
 
   next();
@@ -76,7 +72,7 @@ signale.info('Using cors config: ', toStringify(corsOptions));
 app.use(cors(corsOptions));
 
 if (swaggerConfig['enabled'] == 'true') {
-  swagger(app, serverConfig);
+  swagger(app, appConfig);
 }
 
 routes(app, appConfig, pjson['version']);

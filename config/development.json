@@ -13,6 +13,7 @@
     "enabledLogs": "true"
   },
   "swagger": {
+    "path": "api-docs",
     "enabled": "true"
   },
   "params": {

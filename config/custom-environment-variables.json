@@ -13,6 +13,7 @@
     "enabledLogs": "ENABLED_LOGS"
   },
   "swagger": {
+    "path": "SWAGGER_PATH",
     "enabled": "SWAGGER_ENABLED"
   },
   "params": {

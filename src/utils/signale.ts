@@ -16,12 +16,6 @@ const options: any = {
       label: 'santa',
       logLevel: 'info',
     },
-    pepe: {
-      badge: '(?)',
-      color: 'blue',
-      label: 'pepe',
-      logLevel: 'info',
-    },
     success: {
       badge: '✔',
       color: 'green',
@@ -52,4 +46,3 @@ const options: any = {
 const signale = new Signale(options);
 
 export default signale;
-//module.exports = signale;

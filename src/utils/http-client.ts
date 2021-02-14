@@ -1,10 +1,10 @@
-import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse, Method } from 'axios';
-import https from 'https';
-import { toStringify } from './converters';
-import signale from './signale';
-import { HttpMethods } from './types';
-
 const config = require('config');
+import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios';
+import https from 'https';
+import signale from './signale';
+import { toStringify } from './converters';
+
+import { HttpMethods } from './types';
 
 const serverConfig = config['server'];
 
@@ -17,50 +17,6 @@ const headers = {
 };
 
 const filterOptions = ({ ...rest }) => rest;
-
-export const prepareResponse = async (
-  method: Method,
-  url: string,
-  headers: any = {},
-  params: any = {},
-  data: any = {},
-): Promise<AxiosPromise> => {
-  const options = {
-    url,
-    method,
-    headers,
-    params,
-    data,
-    httpsAgent: new https.Agent({
-      rejectUnauthorized: false,
-      requestCert: false,
-    }),
-  };
-
-  if (Object.keys(headers).length) {
-    options['headers'] = { ...headers };
-  }
-
-  if (Object.keys(params).length) {
-    options['params'] = { ...params };
-  }
-
-  if (Object.keys(data).length) {
-    options['data'] = { ...data };
-  }
-
-  signale.info(`REQUEST TO: ${encodeURI(url)}`);
-
-  try {
-    return await axios(options);
-  } catch (error) {
-    signale.error({
-      prefix: '[prepareResponse] ERROR',
-      message: toStringify(error),
-    });
-    throw error;
-  }
-};
 
 const fetch = async (url: string, options: any = {}): Promise<AxiosPromise> => {
   try {
@@ -81,7 +37,7 @@ const fetch = async (url: string, options: any = {}): Promise<AxiosPromise> => {
         if (serverConfig['showLogInterceptor'] == 'true') {
           signale.error({
             prefix: '[http-client][interceptor] REQUEST',
-            message: toStringify(error),
+            message: error,
           });
         }
         return Promise.reject(error);
@@ -112,11 +68,15 @@ const fetch = async (url: string, options: any = {}): Promise<AxiosPromise> => {
       params: options['params'],
       method: options['method'],
       headers: options['headers'],
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false,
+        requestCert: false,
+      }),
     });
   } catch (error) {
     signale.error({
       prefix: '[http-client] ERROR',
-      message: toStringify(error),
+      message: error,
     });
     throw error;
   }
@@ -155,7 +115,6 @@ const del = async (url: string, options: any = {}): Promise<AxiosPromise> => {
 };
 
 export default {
-  prepareResponse,
   get,
   post,
   put,

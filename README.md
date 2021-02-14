@@ -23,7 +23,7 @@
 ## Glosario
 
 - [📝 Requerimientos básicos](#basic-requirements)
-- [🛠 Instalar dependencias](#install-dependencies)
+- [🛠️ Instalar dependencias](#install-dependencies)
 - [⚙️ Configuración](#configurations)
 - [💻 Scripts](#scripts)
 - [📚 Swagger](#swagger-info)
@@ -85,6 +85,7 @@ esquema.
     "enabledLogs": "true"
   },
   "swagger": {
+    "path":'api-docs',
     "enabled": "true"
   },
   "params": {
@@ -150,7 +151,6 @@ servidor. [Lista de zonas horarias](https://en.wikipedia.org/wiki/List_of_tz_dat
 - Type: `String`
 - Default: `America/Argentina/Buenos_Aires`
 
-
 `showLogInterceptor`: Habilita o deshabilita la visualización de los interceptors de los requests y responses por medio de logs.
 
 - Type: `Boolean`
@@ -162,6 +162,11 @@ servidor. [Lista de zonas horarias](https://en.wikipedia.org/wiki/List_of_tz_dat
 - Default: `true`
 
 #### Swagger
+
+`path`: Define la ruta de la documentación **Swagger**, se escribe sin el `/` (slash).
+
+- Type: `String`
+- Default: `api-docs`
 
 `enabled`: Habilitar o deshabilitar la documentación **Swagger** de los endpoints del servidor.
 
@@ -234,6 +239,14 @@ Inicia la aplicación de transpilada de la carpeta `./dist`, se requiere previam
 npm run start
 ```
 
+#### Test
+
+Inicia la fake app para correr los unit test con **Jest** y retorna el coverage.
+
+```
+npm run test
+```
+
 <a name="swagger-info"></a>
 
 ## 📚 Swagger
@@ -250,6 +263,7 @@ Esta documentación puede ser activada o desactivada desde el archivo de configu
 {
   ...
   "swagger": {
+    "path": 'api-docs',
     "enabled": "true"
   },
   ...
@@ -258,6 +272,7 @@ Esta documentación puede ser activada o desactivada desde el archivo de configu
 
 ```js
 // ENV
+SWAGGER_PATH=api-docs
 SWAGGER_ENABLED=true;
 ```
 

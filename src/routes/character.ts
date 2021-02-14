@@ -27,11 +27,12 @@ module.exports = (app: Application, appConfig: any) => {
       } catch (error) {
         signale.error({
           prefix: '[character] ERROR',
-          message: toStringify(error),
+          message: error,
         });
-        res
-          .status(error.status || 409)
-          .send({ error_message: error.message, status: error.status || 409 });
+        res.status(error.status || error.response.status || 409).send({
+          error_message: error.message,
+          status: error.status || error.response.status || 409,
+        });
       }
     },
   );
