@@ -23,6 +23,7 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'mjs', 'json'],
   moduleDirectories: ['node_modules'],
   preset: 'ts-jest',
+  testResultsProcessor: 'jest-sonar-reporter',
   // transform: {
   //   "^.+\\.tsx?$": "ts-jest"
   // }
