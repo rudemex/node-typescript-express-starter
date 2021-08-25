@@ -9,6 +9,7 @@ module.exports = {
     '**/test/**/*.test.ts',
     '**/test/**/*.e2e.ts',
   ],
+  coverageDirectory: './coverage',
   coveragePathIgnorePatterns: [
     'node_modules',
     'node_modules/*',
@@ -24,7 +25,7 @@ module.exports = {
   moduleDirectories: ['node_modules'],
   preset: 'ts-jest',
   testResultsProcessor: 'jest-sonar-reporter',
-  // transform: {
-  //   "^.+\\.tsx?$": "ts-jest"
-  // }
+  transform: {
+    '^.+\\.(t|j)s$': 'ts-jest',
+  },
 };
