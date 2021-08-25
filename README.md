@@ -9,14 +9,14 @@
 </p>
 
 
-
 <p align="center">
     <img src="https://img.shields.io/static/v1.svg?label=Node&message=v10.15.3&labelColor=339933&color=757575&logoColor=FFFFFF&logo=node.js" alt="Node.js website"/>
     <img src="https://img.shields.io/static/v1.svg?label=Npm&message=v6.4.1&labelColor=CB3837&logoColor=FFFFFF&color=757575&logo=npm" alt="Npm website"/>
-    <img src="https://img.shields.io/static/v1.svg?label=Express&message=v4.17.1&labelColor=444&logoColor=FFFFFF&color=757575&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAMFBMVEX////q6uqgoaEZGhtzc3SSk5Ourq5hYmLHx8f09PVOTk+7u7vf39+DhITT09M3ODgiPZ4kAAAAuUlEQVR42u2RyxbDIAhE0fEVjfL/fxu0YNJFF123d0E4iEMY6c83OA/BO0kDohYTstupUoiOikaTEzjv8+5EpgODaKAeJGQk02ekLbpikBglKh7d0o6x7jZqU0epe5aU05LkUTH2BqhknAivPsA/ik8yTYJ8PzSw/jYGGc66bzLeJJhvNZ90z4hIRkeyNKCZU2aoUMBuG7W8LqRtSgT8oVbra+kgI9gKxey2xzBKn8dTprDOW4YW+hUuT8sFbvZNU3wAAAAASUVORK5CYII=" alt="ExpressJS website"/>
+    <img src="https://img.shields.io/static/v1.svg?label=Express&message=v4.17.1&labelColor=444&logoColor=FFFFFF&color=757575&logo=Express" alt="ExpressJS website"/>
+    <img alt="GitHub Workflow Status" src="https://github.com/rudemex/node-typescript-express-starter/actions/workflows/build.yml/badge.svg?branch=master">
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/rudemex/node-typescript-express-starter?logoColor=FFFFFF&logo=Codecov&labelColor=#F01F7A">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=rudemex_node-typescript-express-starter&metric=alert_status" alt="sonarcloud">    
     <img alt="GitHub" src="https://img.shields.io/github/license/rudemex/node-typescript-express-starter">
-    <img alt="GitHub Workflow Status" src="https://github.com/rudemex/node-typescript-express-starter/workflows/CI/CD/badge.svg?branch=master">
-    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/rudemex/node-typescript-express-starter">
     <br/> 
 </p>
 
@@ -371,13 +371,14 @@ module.exports = routes;
 
 ```
 
+---
 
-## 👨‍💻 Author
-
-[![badge](https://img.shields.io/static/v1.svg?style=flat-square&label=Mex%20Delgado&message=Sr.%20Fullstack%20Developer&labelColor=1A1A1A&color=999999&logo=hackaday)](mailto:mdelgado@tresdoce.com.ar 'Send email to Mex')
-
-📜 [License MIT](license.md)
-
-<div align="right">
-  <p>Build with ❤</p>
+<div align="center">
+    <a href="mailto:mdelgado@tresdoce.com.ar" target="_blank" alt="Send an email">
+        <img src="./.readme-static/logo-mex-red.svg" width="120" alt="Mex" />
+    </a><br/>
+    <!--<a href="mailto:mdelgado@tresdoce.com.ar" target="_blank" alt="Send an email">
+        <img src="https://img.shields.io/static/v1.svg?style=flat-square&label=&message=Sr.%20Fullstack%20Developer&labelColor=1A1A1A&color=999999&logo=hackaday" alt="Mex Delgado" />
+    </a><br/><br/>-->
+    <p>Made with ❤</p>
 </div>

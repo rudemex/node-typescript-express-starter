@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import signale from './utils/signale';
 import { swagger } from './swagger';
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { toStringify } from './utils/converters';
 
@@ -10,7 +9,6 @@ const config = require('config');
 const routes = require('./routes/routes');
 const pjson = require('../package.json');
 
-//signale.info('Using config: ', config);
 const appConfig = config;
 const serverConfig = appConfig['server'];
 const swaggerConfig = appConfig['swagger'];
@@ -18,7 +16,7 @@ const swaggerConfig = appConfig['swagger'];
 serverConfig['enabledLogs'] == 'false' ? signale.disable() : signale.enable();
 
 const corsOptions = {
-  origin: '*',
+  origin: '',
   methods: `${serverConfig['methodsAllowed']}`,
   credentials: serverConfig['corsCredentials'],
   allowedHeaders: `${serverConfig['headersAllowed']}`,
@@ -26,8 +24,8 @@ const corsOptions = {
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
@@ -55,6 +53,7 @@ app.use((req, res, next) => {
 
   const allowedOrigins = serverConfig['origins'].split(',');
   const origin = req['headers']['origin'] || '*';
+  corsOptions['origin'] = origin;
 
   if (serverConfig['corsEnabled'] == 'true' && allowedOrigins.includes(origin)) {
     corsOptions['origin'] = origin;

@@ -11,7 +11,7 @@ const serverConfig = config['server'];
 const headers = {
   'Content-Type': 'application/json',
   Accept: `application/vnd.iman.v1+json, application/json, text/plain, */*`,
-  'Access-Control-Allow-Origin': '*',
+  //'Access-Control-Allow-Origin': '*',
   'Cache-Control': 'no-store, no-cache, must-revalidate',
   Pragma: 'no-cache',
 };
@@ -83,7 +83,7 @@ const fetch = async (url: string, options: any = {}): Promise<AxiosPromise> => {
 };
 
 const get = async (url: string, options: any = {}): Promise<AxiosPromise> => {
-  return await fetch(url, {
+  return fetch(url, {
     method: HttpMethods.GET,
     headers,
     ...filterOptions(options),
@@ -91,7 +91,7 @@ const get = async (url: string, options: any = {}): Promise<AxiosPromise> => {
 };
 
 const post = async (url: string, options: any = {}): Promise<AxiosPromise> => {
-  return await fetch(url, {
+  return fetch(url, {
     method: HttpMethods.POST,
     headers,
     ...filterOptions(options),
@@ -99,7 +99,7 @@ const post = async (url: string, options: any = {}): Promise<AxiosPromise> => {
 };
 
 const put = async (url: string, options: any = {}): Promise<AxiosPromise> => {
-  return await fetch(url, {
+  return fetch(url, {
     method: HttpMethods.PUT,
     headers,
     ...filterOptions(options),
@@ -107,7 +107,7 @@ const put = async (url: string, options: any = {}): Promise<AxiosPromise> => {
 };
 
 const del = async (url: string, options: any = {}): Promise<AxiosPromise> => {
-  return await fetch(url, {
+  return fetch(url, {
     method: HttpMethods.DELETE,
     headers,
     ...filterOptions(options),
